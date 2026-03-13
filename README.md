@@ -55,12 +55,17 @@ module mux4to1 (
     input  wire [1:0] sel,
     output wire y
 );
-    //
---
---
---
+case(sel)
+        2'b00: y = I[0];
+        2'b01: y = I[1];
+        2'b10: y = I[2];
+        2'b11: y = I[3];
+        default: y = 1'b0;
+    endcase
+end
 
    endmodule
+
 ```
 # Constraint file for Seven-Segment Display
 ```
